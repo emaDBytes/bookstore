@@ -2,12 +2,31 @@ package fi.haaga_helia.bookstore;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
+
+import fi.haaga_helia.bookstore.model.Book;
+import fi.haaga_helia.bookstore.repository.BookRepository;
 
 @SpringBootApplication
 public class BookstoreApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(BookstoreApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(BookstoreApplication.class, args);
+    }
 
+    @Bean
+    public CommandLineRunner bookDemo(BookRepository repository) {
+        return (args) -> {
+            // Create a few sample books
+            Book book1 = new Book("A Farewell to Arms", "Ernest Hemingway", 1929, "1232323-21", 29.90);
+            Book book2 = new Book("Animal Farm", "George Orwell", 1945, "2212343-5", 24.90);
+            Book book3 = new Book("The Hobbit", "J.R.R. Tolkien", 1937, "3454545-23", 34.90);
+
+            // Save the books to the database
+            repository.save(book1);
+            repository.save(book2);
+            repository.save(book3);
+        };
+    }
 }
