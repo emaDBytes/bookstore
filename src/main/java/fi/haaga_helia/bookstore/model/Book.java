@@ -1,5 +1,7 @@
 package fi.haaga_helia.bookstore.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,6 +23,7 @@ public class Book {
 
     @ManyToOne
     @JoinColumn(name = "categoryid")
+    @JsonIgnore
     private Category category;
 
     // Default constructor
