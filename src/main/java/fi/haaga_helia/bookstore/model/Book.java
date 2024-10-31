@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Book {
@@ -16,6 +18,10 @@ public class Book {
     private int publicationYear;
     private String isbn;
     private double price;
+
+    @ManyToOne
+    @JoinColumn(name = "categoryid")
+    private Category category;
 
     // Default constructor
     public Book() {}
@@ -36,6 +42,15 @@ public class Book {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+     // Add getter and setter for category
+     public Category getCategory() {
+        return category;
+    }
+    
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     // Other getters and setters remain the same
