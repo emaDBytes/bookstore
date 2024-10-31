@@ -36,6 +36,17 @@
           <label for="price" class="form-label">Price:</label>
           <input type="text" class="form-control" id="price" name="price" />
         </div>
+        <div class="mb-3">
+          <label for="category" class="form-label">Category:</label>
+          <select class="form-control" id="category" name="category">
+            <option value="">Select a category</option>
+            <option
+              th:each="category : ${categories}"
+              th:value="${category.categoryid}"
+              th:text="${category.name}"
+            ></option>
+          </select>
+        </div>
         <button type="submit" class="btn btn-success">Save</button>
         <a href="/booklist" class="btn btn-secondary">Back to Book List</a>
       </form>
