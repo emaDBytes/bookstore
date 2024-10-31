@@ -65,4 +65,11 @@ public class BookController {
         return (List<Book>) repository.findAll();
     }
 
+    // REST endpoint for single book by id
+    @GetMapping("/api/books/{id}")
+    @ResponseBody
+    public Book bookRest(@PathVariable("id") Long bookId) {
+        return repository.findById(bookId).orElse(null);
+    }
+
 }
