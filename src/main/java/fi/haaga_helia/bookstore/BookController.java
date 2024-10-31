@@ -38,6 +38,7 @@ public class BookController {
     }
 
     // Add new book (show form)
+    @GetMapping("/add") 
     public String addBook(Model model) {
         model.addAttribute("book", new Book());
         model.addAttribute("categories", categoryRepository.findAll());
