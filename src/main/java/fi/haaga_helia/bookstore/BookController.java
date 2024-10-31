@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.ui.Model;
 
 import fi.haaga_helia.bookstore.model.Book;
-import fi.haaga_helia.bookstore.model.Category;
 import fi.haaga_helia.bookstore.repository.BookRepository;
 import fi.haaga_helia.bookstore.repository.CategoryRepository;
 
