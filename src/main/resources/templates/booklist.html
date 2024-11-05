@@ -7,7 +7,16 @@
   </head>
   <body>
     <div class="container mt-4">
-      <h1>Books</h1>
+      <div class="row mb-3">
+        <div class="col">
+          <h1>Books</h1>
+        </div>
+        <div class="col text-end">
+          <form th:action="@{/logout}" method="post" style="display: inline">
+            <input type="submit" value="Logout" class="btn btn-danger" />
+          </form>
+        </div>
+      </div>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -40,7 +49,9 @@
           </tr>
         </tbody>
       </table>
-      <a href="/add" class="btn btn-success">Add Book</a>
+      <div class="mt-3">
+        <a href="/add" class="btn btn-success">Add Book</a>
+      </div>
     </div>
   </body>
 </html>
