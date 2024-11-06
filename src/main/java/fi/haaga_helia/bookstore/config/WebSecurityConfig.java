@@ -23,17 +23,14 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers(antMatcher("/**")).authenticated()
-            )
-            .formLogin(form -> form
-                .loginPage("/login")
-                .defaultSuccessUrl("/booklist", true)
-                .permitAll()
-            )
-            .logout(logout -> logout
-                .permitAll()
-            );
+                .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers(antMatcher("/**")).authenticated())
+                .formLogin(form -> form
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/booklist", true)
+                        .permitAll())
+                .logout(logout -> logout
+                        .permitAll());
         return http.build();
     }
 
@@ -45,15 +42,15 @@ public class WebSecurityConfig {
         PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 
         UserDetails user1 = User.withUsername("user")
-            .password(passwordEncoder.encode("user"))
-            .roles("USER")
-            .build();
+                .password(passwordEncoder.encode("user"))
+                .roles("USER")
+                .build();
         users.add(user1);
 
         UserDetails user2 = User.withUsername("admin")
-            .password(passwordEncoder.encode("admin"))
-            .roles("USER", "ADMIN")
-            .build();
+                .password(passwordEncoder.encode("admin"))
+                .roles("USER", "ADMIN")
+                .build();
         users.add(user2);
 
         return new InMemoryUserDetailsManager(users);

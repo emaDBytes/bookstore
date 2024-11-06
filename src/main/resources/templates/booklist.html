@@ -12,6 +12,10 @@
           <h1>Books</h1>
         </div>
         <div class="col text-end">
+          <span class="me-3"
+            >Welcome
+            <span th:text="${username}"></span>
+          </span>
           <form th:action="@{/logout}" method="post" style="display: inline">
             <input type="submit" value="Logout" class="btn btn-danger" />
           </form>
@@ -43,8 +47,9 @@
               <a
                 th:href="@{/delete/{id}(id=${book.id})}"
                 class="btn btn-danger btn-sm"
-                >Delete</a
               >
+                Delete
+              </a>
             </td>
           </tr>
         </tbody>

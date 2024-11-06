@@ -1,6 +1,7 @@
 package fi.haaga_helia.bookstore;
 
 import java.util.List;
+import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
