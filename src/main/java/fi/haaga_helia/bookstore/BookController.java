@@ -1,7 +1,7 @@
 package fi.haaga_helia.bookstore;
 
-import java.util.List;
 import java.security.Principal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,8 +42,9 @@ public class BookController {
      * @return the name of the view to be rendered, "booklist"
      */
     @GetMapping("/booklist")
-    public String bookList(Model model) {
+    public String bookList(Model model, Principal principal) {
         model.addAttribute("books", repository.findAll());
+        model.addAttribute("username", principal.getName());
         return "booklist";
     }
 
