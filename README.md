@@ -73,10 +73,6 @@ Run tests using Maven:
 - Add more detailed book information
 - Enhance user management features
 
-## Author
-
-[Your Name] - Student at Haaga-Helia University of Applied Sciences
-
 ## License
 
 This project is licensed under the [Apache License 2.0](LICENSE)
