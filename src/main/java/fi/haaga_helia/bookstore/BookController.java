@@ -3,6 +3,7 @@ package fi.haaga_helia.bookstore;
 import java.security.Principal;
 import java.util.List;
 
+import org.springframework.http.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -89,23 +90,23 @@ public class BookController {
     }
 
     /**
-     * Handles GET requests to "/api/books" and returns a list of all books.
+     * RESTful API endpoint to retrieve a list of all books.
      * 
-     * @return a list of all books in the repository
+     * @return a list of all books in JSON format
      */
-    @GetMapping("/api/books")
+    @GetMapping(value = "/api/books", produces = "application/json")
     @ResponseBody
     public List<Book> bookListRest() {
         return (List<Book>) repository.findAll();
     }
 
     /**
-     * Handles GET requests to retrieve a book by its ID.
-     *
-     * @param bookId the ID of the book to retrieve
-     * @return the Book object if found, otherwise null
+     * RESTful API endpoint to retrieve a book by its ID.
+     * 
+     * @param bookId the ID of the book to be retrieved
+     * @return the book with the given ID in JSON format
      */
-    @GetMapping("/api/books/{id}")
+    @GetMapping(value = "/api/books/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Book bookRest(@PathVariable("id") Long bookId) {
         return repository.findById(bookId).orElse(null);
